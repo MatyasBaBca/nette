@@ -34,6 +34,5 @@ class GamesPresenter extends Nette\Application\UI\Presenter
             $this->error('Stránka nebyla nalezena');
         }
         $this->template->game = $gamesRepository;
-        $this->template->description = $gamesRepository->related('description')->order('created_at');
     }
 }
