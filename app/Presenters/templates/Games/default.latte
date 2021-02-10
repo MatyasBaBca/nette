@@ -1,0 +1,19 @@
+{block subcontent}
+HALOOO OMEGALUL FAKT ZE JO FUNGUJE TO
+{/block subcontent}
+{block content}
+	<h1 n:block="title">Můj blog</h1>
+
+	{foreach $games as $game}
+	<div class="post">
+		<div class="date">{$game->created_at|date:'F j, Y'}</div>
+		<h2><a href="{link games:show $game->id_game}">{$game->name}</a></h2>
+		<h2>{$game->name}</h2>
+		
+		<div>{$game->description}</div>
+	</div>
+	{/foreach}
+{*
+	<a n:href="Post:create" n:if="$user->isLoggedIn()">Napsat nový příspěvek</a>
+*}  
+{/block}

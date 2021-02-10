@@ -21,6 +21,7 @@ services:
 	router: App\Router\RouterFactory::createRouter
 	- App\Model\ArticleManager
 	- App\Model\UserManager
+	- App\Model\GamesRepository
 
 #security:
 #	users:
