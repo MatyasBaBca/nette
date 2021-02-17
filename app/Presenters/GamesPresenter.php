@@ -29,10 +29,10 @@ class GamesPresenter extends Nette\Application\UI\Presenter
 
     public function renderShow(int $gameId): void
     {
-        $gamesRepository = $this->database->table('games')->get($gameId);
-        if (!$gamesRepository) {
+        $game = $this->gamesRepository->get($gameId);
+        if (!$game) {
             $this->error('Stránka nebyla nalezena');
         }
-        $this->template->game = $gamesRepository;
+        $this->template->game = $game;
     }
 }
