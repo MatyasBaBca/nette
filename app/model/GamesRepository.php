@@ -21,16 +21,16 @@ class GamesRepository
             ->where('created_at < ', new \DateTime)
             ->order('created_at DESC');
     }
-    
+
     public function get(int $gameId)
     {
         return $this->database->table('games')
             ->get($gameId);
-        $genres = $this->database->query('SELECT ge.id_genre 
-			FROM genres ge 
-			LEFT JOIN games ga 
-			ON ge.id_genre = ga.id_genre 
-			WHERE ga.id_game = 1');
-        return $genres->fetchAll();
+    }
+
+    public function getGenre(int $genreId)
+    {
+        return $this->database->table('genres')
+            ->get($genreId);
     }
 }
