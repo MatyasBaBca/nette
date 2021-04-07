@@ -20,22 +20,25 @@ class GamesPresenter extends Nette\Application\UI\Presenter
     }
 
 
-    public function renderDefault(): void
+    public function renderDefault($genreId): void
     {
-        $this->template->games = $this->gamesRepository->getGames();
-        //$this->template->genres = $this->gamesRepository->getGenres();
-        //->limit(5);
+        if (!empty($genreId)) {
+            $this->template->games = $this->gamesRepository->getGamesByGenreId($genreId);
+        } else {
+            $this->template->games = $this->gamesRepository->getGames();
+        }
+        $this->template->genres = $this->gamesRepository->getGenres();
     }
 
     public function renderShow(int $gameId): void
     {
         $game = $this->gamesRepository->get($gameId);
         if (!$game) {
-            $this->errror('Stránka nebyla nalezena');
+            $this->error('Stránka nebyla nalezena');
         }
         $this->template->game = $game;
 
-        $genres = $this->gamesRepository->getGenre($game->id_genre);
+        $genres = $this->gamesRepository->getGenre($game->id);
         $this->template->genres = $genres;
     }
 }

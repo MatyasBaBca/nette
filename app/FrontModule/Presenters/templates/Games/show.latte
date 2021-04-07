@@ -1,6 +1,14 @@
-{block content}
-<h1 n:block="name">{$game->name}</h1>
+{block title}<h1>{$game->name}</h1>{/block}
 
-<p>{$game->description}</p>
-<h3> Distributor </h3> {$game->distributor}
-<h3> ŽÁNR: </h3> {$genres->desc} !!!
+{block content}
+
+<h1>{$game->name}</h1>
+
+<p> Cena: {$game->age_from} Kč</p>
+<p n:if="$game->age_from"> věk od: {$game->age_from}</p>
+<p n:if="$game->release_date"> Vydáno: {$game->release_date}</p>
+<p n:if="$game->distributor">Distributor: {$game->distributor}</p>
+<p n:if="$game->genre"> Žánr: {$game->genre->name}</p>
+<p n:if="$game->description">{$game->description}</p>
+
+{/block}

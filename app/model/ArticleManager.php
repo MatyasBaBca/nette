@@ -17,7 +17,7 @@ class ArticleManager
 
 	public function getPublicArticles()
 	{
-		return $this->database->table('posts')
+		return $this->database->table('post')
 			->where('created_at < ', new \DateTime)
 			->order('created_at DESC');
 	}
