@@ -16,7 +16,7 @@ final class UserManager implements Nette\Security\Authenticator
 	use Nette\SmartObject;
 
 	private const
-		TABLE_NAME = 'users',
+		TABLE_NAME = 'user',
 		COLUMN_ID = 'id_user',
 		COLUMN_NAME = 'username',
 		COLUMN_PASSWORD_HASH = 'password',
