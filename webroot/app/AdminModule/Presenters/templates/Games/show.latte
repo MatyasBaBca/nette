@@ -1,0 +1,15 @@
+{block title}<h1>{$game->name}</h1>{/block}
+
+{block content}
+
+<h1>{$game->name}</h1>
+
+<p> Cena: {$game->age_from} Kč</p>
+<p n:if="$game->age_from"> věk od: {$game->age_from}</p>
+<p n:if="$game->release_date"> Vydáno: {$game->release_date}</p>
+<p n:if="$game->distributor">Distributor: {$game->distributor}</p>
+<p n:if="$game->genre"> Žánr: {$game->genre->name}</p>
+<p n:if="$game->description">{$game->description}</p>
+
+<a n:href="edit $game->id"><button type="button">Editovat Hru</button></a>
+{/block}

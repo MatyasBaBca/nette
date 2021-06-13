@@ -1,0 +1,20 @@
+{block subcontent}
+AHOJ
+{/block}
+{block content}
+
+<a n:href="Games:create"><button type="button">Vytvořit novou hru</button></a><br>
+Žánry:<a href="{link games:default}">všechny</a> {foreach $genres as $genre} <a href="{link games:default $genre->id}">{$genre->name} {/foreach}
+	{foreach $games as $game}
+	<div class="post">
+		
+		<h2><a href="{link games:show $game->id}">{$game->name}</a></h2>
+		
+		<b>Description</b>: {$game->description} <br><br>
+		<b>Release date</b>: {$game->release_date|date:'F j, Y'} <br>
+		<b>Genre</b>: {$game->genre->name} <br><br>
+		
+		
+	</div>
+	{/foreach}
+{/block}

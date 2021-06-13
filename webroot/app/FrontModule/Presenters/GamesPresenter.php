@@ -41,4 +41,8 @@ class GamesPresenter extends Nette\Application\UI\Presenter
         $genres = $this->gamesRepository->getGenre($game->id);
         $this->template->genres = $genres;
     }
+
+    public function add(array $values) {
+    $game = $this->database->table('game')->insert($values);
+    }
 }

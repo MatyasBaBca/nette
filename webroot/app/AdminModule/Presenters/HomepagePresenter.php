@@ -14,5 +14,6 @@ class HomepagePresenter extends AdminBasePresenter
 
     public function renderDefault(): void
     {
+        $this->template->headline = "Dashboard";
     }
 }
